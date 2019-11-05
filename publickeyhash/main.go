@@ -26,8 +26,17 @@ func main() {
 	}
 	fmt.Println("is equal: " + isEqual)
 
+	// ---- ↓ split algorithm and public key ↓ ----
+	bs, _ := base64.StdEncoding.DecodeString(algAndPublicKey)
+	algB := bs[0]
+	publicKeyBs := bs[1:]
+
+	// ---- ↓ check sign algorithm ↓ ----
+	fmt.Printf("algorithm number: %b\n", algB)
+
 	// ---- ↓ check public key length ↓ ----
-	// keyBytes, _ := base64.StdEncoding.DecodeString(key)
+	publicKeyLen := len(publicKeyBs)
+	fmt.Printf("public key length: %d bits\n", publicKeyLen)
 
 }
 

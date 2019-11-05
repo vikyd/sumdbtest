@@ -12,25 +12,25 @@ import (
 //   - how to generate Private Key, Public Key of ed25519 algorithm
 //   - the hash in both key is the same: calculated only from name and public key
 func main() {
-	privateKey, publicKey, err := note.GenerateKey(rand.Reader, "example.com")
+	privateNote, publicNote, err := note.GenerateKey(rand.Reader, "example.com")
 	if err != nil {
 		panic(err)
 	}
 
 	// the private key and public key will change after each generation
-	fmt.Println("private key: " + privateKey)
-	fmt.Println("public  key: " + publicKey)
+	fmt.Println("golang private note: " + privateNote)
+	fmt.Println("golang public  note: " + publicNote)
 
 	// find the hash -----
 
 	sep := "+"
 
-	_, after := chop(privateKey, sep)
+	_, after := chop(privateNote, sep)
 	privateKeyHash, after := chop(after, sep)
 	privateKeyHash, after = chop(after, sep)
 	privateKeyHash, _ = chop(after, sep)
 
-	_, after = chop(publicKey, sep)
+	_, after = chop(publicNote, sep)
 	publicKeyHash, _ := chop(after, sep)
 
 	isOk := "√"

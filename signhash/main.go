@@ -29,7 +29,7 @@ func main() {
 
 // check the length of the real sign
 func checkSignLen(bs []byte) {
-	msg := fmt.Sprintf("length of sign: %d bits", len(bs))
+	msg := fmt.Sprintf("sign size: %d bits", len(bs))
 	fmt.Println(msg)
 }
 
