@@ -14,7 +14,6 @@ var sep = "+"
 // This example shows:
 //   - create a new sign for a message by private key
 //   - show the length of private key, public key, sign
-//   - verify a sing by public key
 func main() {
 	// new key pair
 	privateNote, publicNote, err := note.GenerateKey(rand.Reader, "example.com")
