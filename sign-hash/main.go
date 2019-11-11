@@ -22,9 +22,15 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	fmt.Printf("length of all: %d bytes\n", len(sig))
+	fmt.Println(sig)
 	checkHash(sig[0:4])
 	checkSignLen(sig[4:])
 
+	fmt.Println("hash in bytes: ")
+	fmt.Println(sig[0:4])
+	fmt.Println("sign in bytes: ")
+	fmt.Println(sig[4:])
 }
 
 // check the length of the real sign
