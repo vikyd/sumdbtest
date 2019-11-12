@@ -12,8 +12,12 @@ import (
 var sep = "+"
 
 // This example shows:
-//   - create a new sign for a message by private key
-//   - show the length of private key, public key, sign
+//   - how to create a new sign for a piece of data by private key
+//   - the length of private key
+//   - the length of public key
+//   - the length of sign
+//   - the algorithm of private note
+//   - the algorithm of public note
 func main() {
 	// new key pair
 	privateNote, publicNote, err := note.GenerateKey(rand.Reader, "example.com")

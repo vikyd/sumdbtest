@@ -7,20 +7,14 @@ import (
 	"net/http"
 )
 
+// This example shows:
+//   - how to parse the response of a tile
+//   - the length of a full size tile
 func main() {
 	// this url can be captured when `go get github.com/google/uuid v1.1.1`
 	tileURL := "https://sum.golang.org/tile/8/0/003"
 
-	hList := getTile(tileURL)
-	fmt.Println("SHA-256 hashes in response: ")
-	fmt.Println()
-	for i, hash := range hList {
-		fmt.Printf("[%03d]%s\n", i+1, hash)
-	}
-}
-
-func getTile(url string) []string {
-	resp, err := http.Get(url)
+	resp, err := http.Get(tileURL)
 	if err != nil {
 		panic(err)
 	}
@@ -31,9 +25,6 @@ func getTile(url string) []string {
 		panic(err)
 	}
 
-	fmt.Printf("url: %s\n", url)
-	fmt.Printf("response size: %d bits\n", len(body))
-
 	// convert to base64
 	b64List := []string{}
 	sha256Len := 32
@@ -42,5 +33,13 @@ func getTile(url string) []string {
 		b64List = append(b64List, b64)
 	}
 
-	return b64List
+	fmt.Println("SHA-256 hashes in response: ")
+	fmt.Println()
+	for i, hash := range b64List {
+		fmt.Printf("[%03d]%s\n", i+1, hash)
+	}
+
+	fmt.Println()
+	fmt.Printf("url: %s\n", tileURL)
+	fmt.Printf("response length: %d bytes\n", len(body))
 }

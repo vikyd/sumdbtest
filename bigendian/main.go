@@ -5,6 +5,9 @@ import (
 	"fmt"
 )
 
+// This example shows:
+//   - simple data parsed by big endian
+//   - simple data parsed by little endian
 func main() {
 	var arr []uint8
 	var i uint32

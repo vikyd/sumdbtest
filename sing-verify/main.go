@@ -10,6 +10,9 @@ import (
 var sep = "+"
 
 // This example shows:
+//   - how to generate a new private-public key pair
+//   - how to sign a piece a data by private key
+//   - how to verify a sign by public key
 func main() {
 	// new key pair
 	privateNote, publicNote, err := note.GenerateKey(rand.Reader, "example.com")

@@ -8,10 +8,11 @@ import (
 
 // This example shows:
 //   - parse hash from a sign
+//   - length of the sign
 //   - the hash is the first 32bit of the sign
-//   - ref: https://github.com/golang/exp/blob/master/sumdb/internal/note/note.go#L576
+//   - see: https://github.com/golang/exp/blob/master/sumdb/internal/note/note.go#L576
 //   - the hash is the same as public key hash
-//   - for Golang the hash in hex is always: 033de0ae
+//   - for `sum.golang.org` the hash in hex is always: 033de0ae
 func main() {
 	// this base64 string can be found from sumdb `/lookup` or `/latest` :
 	//   - may be the sign is not the same, but this hash is not changed
@@ -35,7 +36,7 @@ func main() {
 
 // check the length of the real sign
 func checkSignLen(bs []byte) {
-	msg := fmt.Sprintf("sign size: %d bits", len(bs))
+	msg := fmt.Sprintf("sign length: %d bits", len(bs))
 	fmt.Println(msg)
 }
 

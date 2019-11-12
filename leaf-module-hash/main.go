@@ -8,6 +8,10 @@ import (
 	"net/http"
 )
 
+// This example shows:
+//   - how to calculate the composite hash of a module which is also the value of leaf node
+//   - fetch hashes from a tile url and find the matched hash of the module
+//   - how to calucate the offset number of a module in the tree leafs
 func main() {
 	// this data is from: https://sum.golang.org/lookup/github.com/google/uuid@v1.1.1
 	modNum := 842

@@ -24,11 +24,13 @@ var SumdbURL = "https://sum.golang.org"
 
 var TileHeight = 8
 
-// 2^tileHeight
+// TileWidth = 2^tileHeight
 var TileWidth = 1 << TileHeight
 
 var LeafLevel = 0
 
+// This example shows:
+//   - how to calculate some tile urls in leaf level with the response of `/lookup`
 func main() {
 	lookURL := "https://sum.golang.org/lookup/github.com/google/uuid@v1.1.1"
 
@@ -128,6 +130,7 @@ func calcTileLeafEnd(leafCount int) {
 const pathBase = 1000
 
 // Path returns a tile coordinate path describing t.
+// https://github.com/golang/mod/blob/master/sumdb/tlog/tile.go#L171
 func (t Tile) Path() string {
 	n := t.N
 	nStr := fmt.Sprintf("%03d", n%pathBase)

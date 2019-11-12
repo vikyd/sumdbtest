@@ -7,7 +7,10 @@ import (
 	"fmt"
 )
 
-// This example shows that how to calculate the hash from sumdb url, algorithm number, public key
+// This example shows:
+//   - how to calculate the hash from sumdb url, algorithm number, public key
+//   - where is the algorithm number
+//   - the length of public key in bits
 func main() {
 	// Example: sum.golang.org+033de0ae+Ac4zctda0e5eza+HJyk9SxEdh+s3Ux18htTTAD8OuAn8
 	// From: https://github.com/golang/go/blob/master/src/cmd/go/internal/modfetch/key.go#L8

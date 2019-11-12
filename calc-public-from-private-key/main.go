@@ -14,6 +14,7 @@ import (
 var sep = "+"
 
 // This example shows:
+//   - how to generate public key from private key of ed25519
 func main() {
 	// new key pair
 	privateNote, publicNote, err := note.GenerateKey(rand.Reader, "example.com")
